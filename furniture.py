@@ -1,7 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import Tuple
 
-# Abstract Base Class
 class Furniture(ABC):
     def __init__(self, material: str, size: Tuple[float, float, float], weight_limit: float):
         self.material = material
@@ -18,7 +17,6 @@ class Furniture(ABC):
         pass
 
 
-# Chair Subclass
 class Chair(Furniture):
     def __init__(self, material, size, weight_limit, has_armrest: bool, legs: int):
         super().__init__(material, size, weight_limit)
@@ -32,7 +30,6 @@ class Chair(Furniture):
         return "Chair disassembled by removing legs and armrest."
 
 
-# Table Subclass
 class Table(Furniture):
     def __init__(self, material, size, weight_limit, shape: str, has_drawers: bool):
         super().__init__(material, size, weight_limit)
@@ -46,7 +43,6 @@ class Table(Furniture):
         return "Table disassembled by detaching tabletop and legs."
 
 
-# Sofa Subclass
 class Sofa(Furniture):
     def __init__(self, material, size, weight_limit, color: str, is_recliner: bool):
         super().__init__(material, size, weight_limit)
