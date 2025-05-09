@@ -5,7 +5,7 @@ from typing import Tuple
 class Furniture(ABC):
     def __init__(self, material: str, size: Tuple[float, float, float], weight_limit: float):
         self.material = material
-        self.size = size  # (width, depth, height)
+        self.size = size  
         self.weight_limit = weight_limit
 
 
@@ -71,7 +71,6 @@ class Bookshelf(Furniture):
     def disassemble(self):
         return "Bookshelf disassembled by removing screws and shelves."
 
-
 if __name__ == "__main__":
     chair = Chair("Wood", (45.0, 45.0, 90.0), 4.0, True, 4)
     table = Table("Metal", (300.0, 80.0, 75.0), 18.0, "Rectangle", True)
@@ -86,14 +85,17 @@ if __name__ == "__main__":
         
         if isinstance(furniture, Chair):
             print(f"  Legs: {furniture.legs}")
+            print(f"  Has Armrest: {'Yes' if furniture.has_armrest else 'No'}")
         elif isinstance(furniture, Table):
             print(f"  Shape: {furniture.shape}")
+            print(f"  Has Drawers: {'Yes' if furniture.has_drawers else 'No'}")
         elif isinstance(furniture, Sofa):
             print(f"  Color: {furniture.color}")
+            print(f"  Recliner: {'Yes' if furniture.is_recliner else 'No'}")
         elif isinstance(furniture, Bookshelf):
             print(f"  Color: {furniture.color}")
+            print(f"  Has Books: {'Yes' if furniture.has_books else 'No'}")
         
         print(f"  Assemble: {furniture.assemble()}")
         print(f"  Disassemble: {furniture.disassemble()}")
         print()
-
