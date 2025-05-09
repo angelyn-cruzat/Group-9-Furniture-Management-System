@@ -60,8 +60,16 @@ class Sofa(Furniture):
         return "Sofa disassembled by separating cushions and frame."
     
 class Bookshelf(Furniture):
-    def __init__(self, material, size, weight_limit, color: str):
-        def
+    def __init__(self, material, size, weight_limit, color: str, has_books: bool):
+        super().__init__(material,size,weight_limit)
+        self.color = color
+        self.has_books = has_books
+        
+    def assemble(self):
+        return "Bookshelf assembled by joining screws and shelves."
+        
+    def disassemble(self):
+        return "Bookshelf disassembled by removing screws and shelves."
 
 
 # Object creation and method testing
@@ -69,8 +77,9 @@ if __name__ == "__main__":
     chair = Chair("Wood", (45.0, 45.0, 90.0), 120.0, True, 4)
     table = Table("Metal", (300.0, 80.0, 75.0), 18.0, "Rectangle", True)
     sofa = Sofa("Leather", (200.0, 90.0, 100.0), 120.0, "Pink", True)
+    bookshelf = Bookshelf("Wood", (80.0, 30.0, 202.0), 125.0 ,"White", True)
 
-    for furniture in [chair, table, sofa]:
+    for furniture in [chair, table, sofa, bookshelf]:
         print(f"{furniture.__class__.__name__}:")
         print(f"  Material: {furniture.material}")
         print(f"  Size: {furniture.size}")
