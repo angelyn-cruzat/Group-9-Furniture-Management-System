@@ -68,7 +68,7 @@ class Bookshelf(Furniture):
 if __name__ == "__main__":
     chair = Chair("Wood", (45.0, 45.0, 90.0), 120.0, True, 4)
     table = Table("Metal", (120.0, 80.0, 75.0), 200.0, "Rectangle", True)
-    sofa = Sofa("Leather", (200.0, 90.0, 100.0), 300.0, "Gray", True)
+    sofa = Sofa("Leather", (120.0, 90.0, 100.0), 300.0, "Pink", True)
 
     for furniture in [chair, table, sofa]:
         print(f"{furniture.__class__.__name__}:")
