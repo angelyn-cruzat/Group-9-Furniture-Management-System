@@ -72,18 +72,28 @@ class Bookshelf(Furniture):
         return "Bookshelf disassembled by removing screws and shelves."
 
 
-# Object creation and method testing
 if __name__ == "__main__":
     chair = Chair("Wood", (45.0, 45.0, 90.0), 4.0, True, 4)
     table = Table("Metal", (300.0, 80.0, 75.0), 18.0, "Rectangle", True)
     sofa = Sofa("Leather", (200.0, 90.0, 100.0), 120.0, "Pink", True)
-    bookshelf = Bookshelf("Wood", (80.0, 30.0, 202.0), 125.0 ,"White", True)
+    bookshelf = Bookshelf("Wood", (80.0, 30.0, 202.0), 125.0, "White", True)
 
     for furniture in [chair, table, sofa, bookshelf]:
         print(f"{furniture.__class__.__name__}:")
         print(f"  Material: {furniture.material}")
         print(f"  Size: {furniture.size}")
         print(f"  Weight Limit: {furniture.weight_limit} kg")
+        
+        if isinstance(furniture, Chair):
+            print(f"  Legs: {furniture.legs}")
+        elif isinstance(furniture, Table):
+            print(f"  Shape: {furniture.shape}")
+        elif isinstance(furniture, Sofa):
+            print(f"  Color: {furniture.color}")
+        elif isinstance(furniture, Bookshelf):
+            print(f"  Color: {furniture.color}")
+        
         print(f"  Assemble: {furniture.assemble()}")
         print(f"  Disassemble: {furniture.disassemble()}")
         print()
+
